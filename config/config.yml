@@ -1,0 +1,12 @@
+mongo:
+  url: "mongodb://goebd:goebd_password@mongo:27017/"
+
+app:
+  name: Documents Search
+  version: 1-beta
+
+logger:
+  log_level: debug
+
+http:
+  port: 8008
