@@ -12,5 +12,5 @@ fi
 echo "Starting"
 
 while true; do
-sleep 10
+sleep 2
 done
