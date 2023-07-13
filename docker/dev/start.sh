@@ -1,6 +1,7 @@
 #!/bin/ash
 
-if [ -f "go.mod" ]; then
+if [ ! -f "go.mod" ]; then
+    go init "github.com/${NAME_PROJECT}"
     go mod tidy
 fi
 
