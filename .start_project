@@ -1,11 +1,16 @@
 #!/bin/bash
 
+if [ -f "go.mod" ]; then
+    exit 0
+fi
+
 host_p="github.com/"
 
 echo -n "Type the name project: "
 read namep
 echo "Settings project ${host_p}${namep}"
 
-find . -type f -exec sed -i "s|mayconvm/correios|${namep}|g" {} \;
+find . -type f -exec sed -i "s|<TEMPLATE>|${namep}|g" {} \;
+sed -i "s/<USER>/"$(id -u)"/g" .env
 
-git commit -am "Change the path to internals lib"
+#git commit -am "Change the path to internals lib"

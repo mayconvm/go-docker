@@ -3,7 +3,10 @@
 ## Start project
 
 ```bash
-go mod init github.com/mayconvm/<name-project>
+# create and build project
+make build
+
+# Start project
 make start
 ```
 
