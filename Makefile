@@ -1,6 +1,7 @@
 
 start:
-	cd docker/dev && docker-compose up -d && docker-compose exec -it api /bin/ash
+	./.start_project
+	# cd docker/dev && docker-compose up -d && docker-compose exec -it api /bin/ash
 
 attach:
 	cd docker/dev && docker-compose exec -it api /bin/ash

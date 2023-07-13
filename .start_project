@@ -1,0 +1,10 @@
+#!/bin/bash
+
+host_p="github.com/"
+
+echo -n "Type the name project: "
+read namep
+echo "Settings project ${host_p}${namep}"
+find . -type f -exec sed -i "s/asdqwe/${namep}/g" {} \;
+
+git commit -am "Change the path to internals lib"
