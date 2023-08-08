@@ -11,6 +11,12 @@ fi
 
 echo "Starting"
 
-while true; do
-sleep 2
-done
+echo "Download dependencies"
+go mod download
+
+echo "Starting"
+go run *.go
+
+# while true; do
+# sleep 2
+# done
