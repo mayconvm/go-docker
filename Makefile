@@ -19,3 +19,11 @@ down:
 
 run_start:
 	cd docker/dev && docker-compose up -d && docker-compose exec api /start.sh
+
+restart: stop start
+
+logs:
+        cd docker/dev && docker-compose logs -f
+
+logs_api:
+        cd docker/dev && docker-compose logs -f api
