@@ -6,8 +6,8 @@ services:
     build:
       context: ./
       dockerfile: Dockerfile
-    #depends_on:
-    #  - mongo
+    depends_on:
+      - mongo
     ports:
       - "8008:8008"
     env_file:
@@ -15,11 +15,21 @@ services:
     volumes:
       - ../../:/app
     networks:
-      churchapi:
+      ${NAME_PROJECT}_network:
         ipv4_address: 172.1.0.2
 
+  mongo:
+    container_name: mongo_elections
+    image: mongo
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: go${NAME_PROJECT}
+      MONGO_INITDB_ROOT_PASSWORD: go${NAME_PROJECT}_password
+    networks:
+      ${NAME_PROJECT}_network:
+        ipv4_address: 172.1.0.3
 networks:
-  churchapi:
+  ${NAME_PROJECT}_network:
     ipam:
       config:
         - subnet: 172.1.0.0/16
